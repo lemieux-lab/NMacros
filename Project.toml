@@ -1,3 +1,12 @@
+name = "NMacros"
+uuid = "464b7726-eedd-4d86-8e6e-e9f5916276c1"
+version = "0.1.0"
+
 [deps]
 CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
 ProgressMeter = "92933f4c-e287-5a05-a399-4b506db050ca"
+
+[compat]
+julia = "1"
+CairoMakie = "0.15"
+ProgressMeter = "1"
