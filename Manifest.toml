@@ -849,7 +849,7 @@ version = "0.2.4"
 deps = ["CairoMakie", "ProgressMeter"]
 path = "."
 uuid = "464b7726-eedd-4d86-8e6e-e9f5916276c1"
-version = "0.2.1"
+version = "0.2.2"
 
 [[deps.NaNMath]]
 deps = ["OpenLibm_jll"]

@@ -1,7 +1,6 @@
 module NMacros
 
 using ProgressMeter
-using Dates
 using CairoMakie
 
 export @nscatter, @nscatterlines, @nhist, @nboxplot, @nheatmap, @nlines
