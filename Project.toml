@@ -1,6 +1,6 @@
 name = "NMacros"
 uuid = "464b7726-eedd-4d86-8e6e-e9f5916276c1"
-version = "0.2.0"
+version = "0.2.1"
 
 [deps]
 CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
