@@ -1,7 +1,7 @@
 # This file is machine-generated - editing it directly is not advised
 
 julia_version = "1.12.1"
-manifest_format = "2.0"
+manifest_format = "2.1"
 project_hash = "1241cabe63a7532ee8f2bf63ec56e6fbc0660042"
 
 [[deps.AbstractFFTs]]

@@ -1,6 +1,5 @@
 module NMacros
 
-using Statistics
 using ProgressMeter
 using Dates
 using CairoMakie
