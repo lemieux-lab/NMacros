@@ -1,61 +1,11 @@
+module NMacros
+
 using Statistics
 using ProgressMeter
 using Dates
 using CairoMakie
 
-export @ntime, @nscatter, @nscatterlines, @nhist, @nboxplot, @nheatmap, @nlines
-
-function closest_second(dt)
-    scales = ("ns", "μs", "ms", "s")
-    cur_scale = 1
-    while dt/100 > 0 && cur_scale != length(scales)
-        dt/=100
-        cur_scale += 1
-    end
-    return dt, scales[cur_scale]
-end
-
-macro ntime(to_run::Expr, times_to_run::Int=10, max_ms::Int=15_000_000)
-    times_ran = 0
-    total_times = Int64[]
-    init_start_time = now()
-    while times_ran < times_to_run && Millisecond(init_start_time - now()).value < max_ms
-        times_ran += 1
-        run_start = now()
-        :($esc(to_run))
-        push!(total_times, Nanosecond(run_start - now()).value)
-    end
-    avg, symb = closest_second(mean(total_times))
-    println("Benchmark Complete
-    > Times Executed: $times_ran
-    > Average Runtime: $avg$symb")
-end
-
-function has_symbols(node, symbols_to_find::AbstractArray{Symbol}, found::AbstractArray{Symbol}=Symbol[])
-    if node isa Symbol
-        if node in symbols_to_find
-            push!(found, node)
-        end
-    elseif node isa Expr
-        for a in node.args
-            has_symbols(a, symbols_to_find, found)
-        end
-    end
-    return symbols_to_find == found
-end
-
-function find_n_symbols(node, found::AbstractArray{Symbol}=Symbol[])
-    if node isa Symbol
-        if startswith("n_", String(node))
-            push!(found, node)
-        end
-    elseif node isa Expr
-        for a in node.args
-            find_n_symbols(a, found)
-        end
-    end
-    return found
-end
+export @nscatter, @nscatterlines, @nhist, @nboxplot, @nheatmap, @nlines
 
 # Turn syntax into Vector{Symbol}
 _as_syms(x) = x isa Symbol ? [x] :
@@ -361,3 +311,4 @@ macro nheatmap(to_run)
     return :( @nheatmap n_z $(esc(to_run)) )
 end
 
+end
