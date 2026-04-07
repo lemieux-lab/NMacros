@@ -4,9 +4,14 @@ A Julia package providing convenient macros for quick data visualization and ben
  
 ## Installation
  
+This package is registered in [LabRegistry](https://github.com/lemieux-lab/LabRegistry)
+
 ```julia
-using Pkg
-Pkg.add("NMacros")
+# With LabRegistry added in julia registry
+] add NMacros
+
+# Otherwise
+] add https://github.com/lemieux-lab/NMacros
 ```
  
 ## Overview
